@@ -1,0 +1,40 @@
+name: Build Binary Executable
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build-binary:
+
+    runs-on: windows-2019
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'yarn'
+        cache-dependency-path: ./yarn.lock
+
+    - name: Install Build Dependencies
+      run: yarn install --frozen-lockfile
+
+    - name: Build Executable
+      run: yarn build
+
+    - name: Upload Distribution Package Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: binary
+        path: ./nwdc.exe

@@ -1,0 +1,19 @@
+{
+  "name": "nwdc",
+  "version": "1.0.0",
+  "description": "NW.js Debug Console",
+  "license": "MIT",
+  "main": "nwdc.js",
+  "bin": {
+    "nwdc": "./nwdc.js"
+  },
+  "scripts": {
+    "build": "pkg -C GZip -c package.json -t node16-win nwdc.js"
+  },
+  "devDependencies": {
+    "pkg": "^5.5.2"
+  },
+  "dependencies": {
+    "hasbin": "^1.2.3"
+  }
+}
