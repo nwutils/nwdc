@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "NW.js Debug Console",
   "license": "MIT",
+  "homepage": "https://github.com/nwutils/nwdc#readme",
+  "bugs": {
+    "url": "https://github.com/nwutils/nwdc/issues"
+  },
   "main": "nwdc.js",
   "bin": {
     "nwdc": "./nwdc.js"
