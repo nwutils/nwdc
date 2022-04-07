@@ -1,4 +1,5 @@
 # nwdc
+
 Simple script and binary to display Node.js and Chromium console messages in the terminal, when launching NW.js applications
 from the Windows command line.
 
@@ -17,14 +18,14 @@ a wrapper process is kept running that will display output from the main Node.js
 
 2. Add `nwdc` to the NW.js application being developed:
 
+    **npm:**
+    ```sh
+    npm i nwdc
+    ```
+
     **Yarn:**
     ```sh
     yarn add nwdc
-    ```
-
-    **NPM:**
-    ```sh
-    npm i nwdc
     ```
 
 3. Run the NW.js application using `npx nwdc .` instead of `nw .`.
@@ -36,7 +37,7 @@ a wrapper process is kept running that will display output from the main Node.js
 
 1. Download the SDK from https://nwjs.io/downloads/ and extract it to a directory within the `PATH` environment variable.
 
-2. Download a pre-built `nwdc.exe` binary from [Releases](https://github.com/nwutils/nwdc/releases) or build one manually: `yarn && yarn build`
+2. Download a pre-built `nwdc.exe` binary from [Releases](https://github.com/nwutils/nwdc/releases) or build one manually: `npm i && npm run build` or `yarn && yarn build`
 
     **NOTE:** It is useful to copy the `nwdc.exe` file to the same directory as NW.js, so it can be executed without providing the
     full path.
