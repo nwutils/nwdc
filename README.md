@@ -70,3 +70,5 @@ const fd = openSync('nw.exe', 'r+');
 writeSync(fd, '\x03', 0xd4, 'binary');
 closeSync(fd);
 ```
+
+More information on the Windows Subsystem types can be found here: https://learn.microsoft.com/en-us/windows/win32/debug/pe-format
