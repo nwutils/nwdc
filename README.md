@@ -57,3 +57,16 @@ a wrapper process is kept running that will display output from the main Node.js
     ```
 
 4. Press CTRL+C or close your NW.js application normally, to stop the `nwdc.exe` process.
+
+
+### Modify `nw.exe` to change the Windows Subsystem Type
+
+As an alternative to `nwdc`, any hex editor can be used to modify byte `0xD4` of the `nw.exe` binary to change the Windows Subsystem type from
+`02` (IMAGE_SUBSYSTEM_WINDOWS_GUI) to `03` (IMAGE_SUBSYSTEM_WINDOWS_CUI). A quick Node.js script to accomplish this is the following:
+
+```js
+const { openSync, writeSync, closeSync } = require('node:fs');
+const fd = openSync('nw.exe', 'r+');
+writeSync(fd, '\x03', 0xd4, 'binary');
+closeSync(fd);
+```
